@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/style.technologies.content.css" />
+	<title>Random Space</title>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+	<!-- 总模块 -->
+	<div class="page-div">
+		<!-- 0.导航 -->
+		<div class="navigation">
+			<div class="navigation-right">
+				<a href="about.html">ABOUT</a>
+				<a href="resume.EN.html">RESUME</a>
+				<a href="technologies.html">TECHNOLOGIES</a>
+				<a href="contact.html">CONTACT</a>
+			</div>
+		</div>
+
+		<!-- 1.头部 -->
+		<div class="page-header">
+			<!-- 1.1 切换语言 -->
+			<a class="language" href="resume.CN.html">简体中文</a>
+			<!-- 1.2 姓名 -->
+			<h1 class="title">Content</h1>
+			<h3 class="subtitle">From Art To Taoism</h3>
+			<!-- 1.3 打印按钮 -->
+			<a class="print" href="downloadFile/MoyutaoCV.pdf"><img class="print-img" src="img/print.png"></a>
+		</div>
+
+		<!-- 2.内容 -->
+		<div class="page-content">
+			<a class="return-button" href="technologies.html"><button>← PREVIOUS EPISODE</button></a>
+			<!-- 2.1 内容块 -->
+				<div class="page-content-div">
+					<span class="article-title"><b>五.继承</b></span><br>
+					<span class="article-time"><b>Jun 1st . 2019</b></span><br>
+					<span class="article-content">
+					<ul>
+					<li>继承 定义：基于已有的类构造新类</li>
+					<li>反射 定义：在程序运行期间发现更多的类以及属性的能力</li>
+					<li>多态 定义：一个对象变量可以指示多种实际类型的现象</li>
+					<li>动态绑定 定义：在运行时能够自动选择调用方法的现象</li>
+
+					</ul>
+					<h2>5.1 类、超类和子类</h2>
+					<h3>5.1.2 覆盖方法</h3>
+					<ul>
+					<li><p>规则</p>
+					<ul>
+					<li>超类和子类中的方法签名相同（方法名和参数列表），返回值类型需要保证一样或者是返回值类型的子类（协变返回类型）</li>
+
+					</ul>
+					</li>
+					<li><p>覆盖和重载的区别</p>
+					<ul>
+					<li>覆盖是方法签名相同</li>
+					<li>重载是方法名相同，参数列表必须不同，对返回类型，访问修饰符，异常声明没有任何限制 <!--可以看作一个新方法，只是方法名称特殊--></li>
+
+					</ul>
+					</li>
+
+					</ul>
+					<h3>5.1.6 方法调用流程</h3>
+					<ul>
+					<li>图解</li>
+
+					</ul>
+					<h3>5.1.7 阻止继承：final类和方法</h3>
+					<ul>
+					<li><p>规则</p>
+					<ul>
+					<li>类用final修饰后，无法被继承，其中的方法也自动用final修饰。域不包括</li>
+					<li>方法用final修饰后，子类无法覆盖当前方法</li>
+
+					</ul>
+					</li>
+
+					</ul>
+					<h3>5.1.8 强制类型转换</h3>
+					<ul>
+					<li><p>注意</p>
+					<ul>
+					<li>强制类型转换前，使用instanceof方法判断是否为所属类型</li>
+
+					</ul>
+					</li>
+
+					</ul>
+					<h2>5.2  Object:所有类的超类</h2>
+					<ul>
+					<li>注意：只有基本类型不是对象</li>
+
+					</ul>
+					<h3>5.2.1 equals</h3>
+					<ul>
+					<li><p>特点</p>
+					<ul>
+					<li>自反性：x为任何非空引用，x.equals(x)应该返回true</li>
+					<li>对称性：对于任何引用x，y，当且仅当x.equals(y)返回true，则y.equals(x)返回也为true</li>
+					<li>传递性：对于任何引用x，y，z，如果x.equals(y)返回true，y.equals(z)返回true，则x.equals(z)返回也为true</li>
+					<li>一致性：如果x，y引用的对象没有变化，则x.equals(y)应一直返回true</li>
+
+					</ul>
+					</li>
+					<li><p>equals和等号的区别——重点</p>
+					<ul>
+					<li><p>等号（==）</p>
+					<ul>
+					<li>基本数据类型（也称原始数据类型） ：byte,short,char,int,long,float,double,boolean。他们之间的比较，应用双等号（==）,比较的是他们的值。</li>
+					<li>引用数据类型：当他们用（==）进行比较的时候，比较的是他们在内存中的存放地址（确切的说，是<strong>堆内存</strong>地址）</li>
+
+					</ul>
+					</li>
+					<li><p>equals</p>
+					<ul>
+					<li>方法的初始默认行为是比较对象的内存地址值</li>
+					<li><strong>在一些类库当中这个方法被重写了，如String、Integer、Date，比较对象的成员变量值是否相同</strong></li>
+
+					</ul>
+					</li>
+
+					</ul>
+					</li>
+					<li><p>合理的equals重写逻辑</p>
+					<ol>
+					<li>显示参数声明为Object <!--覆盖equals方法--></li>
+					<li>判断是否引用同一对象 <!--相比于判断域，当前判断成本低--></li>
+					<li>判断是否为空</li>
+					<li>判断是否属于同一类 <!--使用getClass()和instanceof--></li>
+					<li>将比较对象转换成相应类型的变量</li>
+					<li>域的比较 <!--使用==比较基本类型域，使用equals比较对象域--></li>
+
+					</ol>
+					</li>
+
+					</ul>
+					<h3>5.2.3 hashCode方法</h3>
+					<ul>
+					<li><p>散列码（hash code） 定义：是由对象导出的一个整型值 <!--对象才有，因此基本数据类型需要转成包装类--></p>
+					</li>
+					<li><p>注意</p>
+					<ul>
+					<li><p>字符串和基本数据类型的包装类创建的对象存在hashCode相同的情况，因为是由内容导出的</p>
+					</li>
+					<li><p>如果重新定义equals方法，就必须重新定义hashCode方法，以便用户可以将对象插入到散列表中。如果重新定义，会出现equals相等，hashCode不等——考点</p>
+					<!--equals与hashCode的定义必须一致，两个对象equals为true,就必须有相同的hashCode。反之则不成立。-->
+					<!--如果定义的equals比较的是雇员ID，那么hashCode就需要散列ID，而不是雇员的姓名或住址-->
+					</li>
+
+					</ul>
+					</li>
+
+					</ul>
+					<h3>5.2.4 toString方法</h3>
+					<ul>
+					<li><p>用途：返回表示对象值的字符串</p>
+					</li>
+					<li><p>注意</p>
+					<ul>
+					<li><p>toString方法常见的原因：当对象与一个字符串通过操作符+连接，编译将自动使用toString方法</p>
+					</li>
+					<li><p>建议重写toString方法，默认调用的方法可读性较差</p>
+					</li>
+
+					</ul>
+					</li>
+
+					</ul>
+					<h3>5.2.5 getClass方法</h3>
+					<ul>
+					<li><p>用途：返回包含对象信息的类对象</p>
+					</li>
+
+					</ul>
+					<h2>5.3 泛型数组列表</h2>
+					<ul>
+					<li>泛型 定义：Java 泛型的参数只可以代表类，不能代表个别对象</li>
+
+					</ul>
+					<h4>1.ArrayList</h4>
+					<ul>
+					<li><p>定义：采用类型参数的泛型类</p>
+					</li>
+					<li><p>规则</p>
+					<ul>
+					<li>使用add方法增加新数据。如果空间用尽，则自动创建更大的数组，并将原数据拷贝到更大的数组中</li>
+					<li>使用size方法获取实际元素数量</li>
+					<li>使用trimToSize将清除多余的存储空间</li>
+					<li>使用get和set方法访问和设置元素</li>
+
+					</ul>
+					</li>
+					<li><p>注意</p>
+					<ul>
+					<li>数组列表和数组大小的核心区别：数组分配100的空间是已经在内存中存在的；数组列表在仅是具备存储100的潜力，即使是完成了初始化之后</li>
+					<li>使用时，指定泛型的类型。因为不指定泛型类型，存储和修改数据接受任意类型对象，因为使用的是Object</li>
+
+					</ul>
+					</li>
+
+					</ul>
+					<h2>5.4 对象包装器和自动装箱</h2>
+					</span><br>
+				</div>
+			
+		</div>
+
+		<!-- 3.底部 -->
+		<div class="page-footer">
+				<span>Contact me at
+				<a href="https://github.com/Toyzcool" target="_blank"><img class="contact-way" src="img/github.png" />Github</a>
+					<!-- 3.1微信二维码弹出 -->
+				<a class="contact-way wechat"><img class="contact-way wechat" src="img/wechat.png" />Wechat</a>
+				<img id="wechatcode" src="img/wechatCode.png" />
+				<a href="mailto:tigertoyz7@gmail.com" target="_blank"><img class="contact-way" src="img/gmail.png" />GMail</a>
+				<a href="https://twitter.com/TigerToyz" target="_blank"><img class="contact-way" src="img/twitter.png" />Twitter</a>
+				</span>
+		</div>
+
+	</div>
+</body>
+</html>
